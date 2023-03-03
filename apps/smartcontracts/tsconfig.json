@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "strict": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    ".eslintrc.cjs",
+    "hardhat.config.ts",
+    "test"
+  ],
+  "exclude": ["node_modules", "dist", "build"]
+}

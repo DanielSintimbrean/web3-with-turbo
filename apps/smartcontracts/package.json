@@ -1,0 +1,52 @@
+{
+  "name": "@turbo-web3/smartcontracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/typechain-types/index.js",
+  "module": "./dist/typechain-types/index.mjs",
+  "types": "./dist/typechain-types/index.d.ts",
+  "type": "commonjs",
+  "private": true,
+  "exports": {
+    ".": {
+      "import": "./dist/typechain-types/index.mjs",
+      "require": "./dist/typechain-types/index.js",
+      "types": "./dist/typechain-types/index.d.ts",
+      "default": "./dist/typechain-types/index.js",
+      "node": "./dist/typechain-types/index.js"
+    },
+    "./typechain-types": {
+      "import": "./dist/typechain-types/index.mjs",
+      "require": "./dist/typechain-types/index.js",
+      "types": "./dist/typechain-types/index.d.ts",
+      "default": "./dist/typechain-types/index.js",
+      "node": "./dist/typechain-types/index.js"
+    },
+    "./network-mapping": {
+      "import": "./dist/network-mapping/index.mjs",
+      "require": "./dist/network-mapping/index.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf .next .turbo node_modules && pnpm hardhat clean",
+    "dev": "hardhat run ./scripts/dev-network.ts",
+    "start": "hardhat run ./scripts/dev-network.ts",
+    "lint": "eslint && tsc",
+    "build": "tsup",
+    "compile": "hardhat compile",
+    "type:generate": "hardhat typechain",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "esbuild": "^0.17.11",
+    "hardhat": "^2.13.0",
+    "npm-dts": "^1.3.12",
+    "ts-toolbelt": "^9.6.0",
+    "tsup": "^6.6.3"
+  }
+}

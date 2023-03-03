@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["./types"]
+  },
+  "include": [
+    "src",
+    "index.ts",
+    "transformer.ts",
+    "lib",
+    "types",
+    "env.mjs",
+    "smart-contracts"
+  ]
+}

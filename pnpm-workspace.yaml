@@ -1,0 +1,7 @@
+packages:
+  - apps/frontend
+  - apps/backend
+  - apps/smartcontracts
+  - packages/auth
+  - packages/db
+  - packages/config/*

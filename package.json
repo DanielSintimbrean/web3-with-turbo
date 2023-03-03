@@ -1,0 +1,43 @@
+{
+  "name": "create-t3-turbo",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@7.29.1",
+  "scripts": {
+    "build": "pnpm with-env turbo build",
+    "build:no-env": "SKIP_ENV_VALIDATION=true turbo build",
+    "clean": "rm -rf node_modules",
+    "clean:workspaces": "turbo clean",
+    "db:generate": "pnpm with-env turbo db:generate",
+    "db:push": "pnpm with-env turbo db:push db:generate",
+    "dev": "pnpm with-env turbo dev --parallel",
+    "start": "pnpm with-env turbo start --parallel",
+    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json,sol}\" --ignore-path .gitignore",
+    "lint": "turbo lint && manypkg check",
+    "lint:fix": "turbo lint:fix && manypkg fix",
+    "type-check": "turbo type-check",
+    "type:generate": "turbo type:generate",
+    "with-env": "dotenv -e .env --",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
+    "@manypkg/cli": "^0.20.0",
+    "@types/prettier": "^2.7.2",
+    "dotenv-cli": "^7.0.0",
+    "eslint": "^8.34.0",
+    "eslint-config-turbo-web3": "0.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "prettier-plugin-solidity": "^1.1.3",
+    "prettier-plugin-tailwindcss": "^0.2.4",
+    "turbo": "^1.8.3",
+    "typescript": "^4.9.5"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

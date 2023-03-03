@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@turbo-web3/", "eslint-config-turbo-web3"],
+      "enabled": false
+    }
+  ],
+  "updateInternalDeps": true
+}
