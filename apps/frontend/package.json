@@ -17,7 +17,6 @@
     "@trpc/next": "^10.14.0",
     "@trpc/react-query": "^10.14.0",
     "@trpc/server": "^10.14.0",
-    "@turbo-web3/auth": "*",
     "@turbo-web3/backend": "*",
     "@turbo-web3/db": "*",
     "@turbo-web3/tailwind-config": "*",

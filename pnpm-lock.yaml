@@ -30,7 +30,6 @@ importers:
     specifiers:
       '@trpc/client': ^10.14.0
       '@trpc/server': ^10.14.0
-      '@turbo-web3/auth': '*'
       '@turbo-web3/db': '*'
       eslint: ^8.34.0
       eslint-config-turbo-web3: 0.0.0
@@ -40,7 +39,6 @@ importers:
     dependencies:
       '@trpc/client': 10.14.0_@trpc+server@10.14.0
       '@trpc/server': 10.14.0
-      '@turbo-web3/auth': link:../../packages/auth
       '@turbo-web3/db': link:../../packages/db
       superjson: 1.9.1
       zod: 3.21.0
@@ -56,7 +54,6 @@ importers:
       '@trpc/next': ^10.14.0
       '@trpc/react-query': ^10.14.0
       '@trpc/server': ^10.14.0
-      '@turbo-web3/auth': '*'
       '@turbo-web3/backend': '*'
       '@turbo-web3/db': '*'
       '@turbo-web3/tailwind-config': '*'
@@ -82,7 +79,6 @@ importers:
       '@trpc/next': 10.14.0_pen7abxfhplw6oyjl4mz6sok3y
       '@trpc/react-query': 10.14.0_ewqbv5apgvis5mngp6qivio3iy
       '@trpc/server': 10.14.0
-      '@turbo-web3/auth': link:../../packages/auth
       '@turbo-web3/backend': link:../backend
       '@turbo-web3/db': link:../../packages/db
       '@turbo-web3/tailwind-config': link:../../packages/config/tailwind
