@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "rootDir": ".",
+    "module": "commonjs",
+    "outDir": "dist",
+    "declaration": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noEmit": true,
+    "typeRoots": ["./node_modules/@types", "./types/hardhat"]
+  },
+  "include": ["**/*.ts", "**/*.d.ts", ".eslintrc.cjs"]
+}
