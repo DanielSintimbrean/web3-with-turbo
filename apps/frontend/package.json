@@ -1,5 +1,5 @@
 {
-  "name": "@turbo-web3/nextjs",
+  "name": "@turbo-web3/frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,8 +17,8 @@
     "@trpc/next": "^10.14.0",
     "@trpc/react-query": "^10.14.0",
     "@trpc/server": "^10.14.0",
-    "@turbo-web3/api": "*",
     "@turbo-web3/auth": "*",
+    "@turbo-web3/backend": "*",
     "@turbo-web3/db": "*",
     "@turbo-web3/tailwind-config": "*",
     "next": "^13.2.3",

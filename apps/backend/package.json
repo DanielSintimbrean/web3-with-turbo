@@ -1,5 +1,5 @@
 {
-  "name": "@turbo-web3/api",
+  "name": "@turbo-web3/backend",
   "version": "0.1.0",
   "main": "./index.ts",
   "types": "./index.ts",
