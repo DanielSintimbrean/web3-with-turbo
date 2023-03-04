@@ -3,7 +3,7 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@acme/", "eslint-config-acme"],
+      "matchPackagePatterns": ["^@turbo-web3/", "eslint-config-turbo-web3"],
       "enabled": false
     }
   ],
