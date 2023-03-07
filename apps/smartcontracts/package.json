@@ -2,17 +2,40 @@
   "name": "@turbo-web3/smartcontracts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js"
+    },
+    "./network-mapping": {
+      "import": "./dist/network-mapping/index.esm.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "network-mapping": [
+        "dist/network-mapping/index.d.ts"
+      ]
+    }
+  },
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf .next .turbo node_modules && pnpm hardhat clean",
-    "lint": "eslint && tsc"
+    "lint": "eslint && tsc",
+    "build": "node ./esbuild.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "hardhat": "^2.13.0"
+    "esbuild": "^0.17.11",
+    "hardhat": "^2.13.0",
+    "npm-dts": "^1.3.12",
+    "ts-toolbelt": "^9.6.0"
   }
 }

@@ -3,7 +3,7 @@ const config = {
   root: true,
   extends: ["eslint-config-turbo-web3"], // uses the config in `packages/config/eslint`
   parser: "@typescript-eslint/parser",
-  ignorePatterns: ["**/smartcontracts/**/*.ts"],
+  ignorePatterns: ["**/smartcontracts/**/*.js", "**/smartcontracts/**/*.ts"],
   parserOptions: {
     ecmaVersion: "latest",
     tsconfigRootDir: __dirname,

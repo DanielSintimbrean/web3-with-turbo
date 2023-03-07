@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "rootDir": ".",
+    "target": "es2020",
     "module": "commonjs",
-    "outDir": "dist",
-    "declaration": true,
     "esModuleInterop": true,
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noEmit": true,
-    "typeRoots": ["./node_modules/@types", "./types/hardhat"]
+    "skipLibCheck": true
   },
-  "include": ["**/*.ts", "**/*.d.ts", ".eslintrc.cjs"]
+  "include": ["**/*.ts", "**/*.d.ts", ".eslintrc.cjs"],
+  "exclude": ["node_modules", "dist", "build", "coverage", "test", "scripts"]
 }

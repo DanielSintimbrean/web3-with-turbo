@@ -5,6 +5,7 @@ const config = {
     "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
+  ignorePatterns: ["*.js", "typechain-types", "dist"],
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
   root: true,

@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { networkList } from "@turbo-web3/smartcontracts/network-mapping";
+
 /**
  * Specify your server-side environment variables schema here. This way you can ensure the app isn't
  * built with invalid env vars.
@@ -29,6 +31,7 @@ const server = z.object({
  */
 const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
+  NEXT_PUBLIC_BLOCKCHAIN_NAME: z.enum(networkList),
 });
 
 /**
@@ -44,6 +47,7 @@ const processEnv = {
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+  NEXT_PUBLIC_BLOCKCHAIN_NAME: process.env.NEXT_PUBLIC_BLOCKCHAIN_NAME,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
