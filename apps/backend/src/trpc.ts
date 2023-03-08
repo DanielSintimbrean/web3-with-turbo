@@ -6,11 +6,15 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
-import { initTRPC } from "@trpc/server";
+import { TRPCError, initTRPC } from "@trpc/server";
+import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { getIronSession, type IronSession } from "iron-session";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
 import { prisma } from "@turbo-web3/db";
+
+import { sessionOptions } from "../lib/iron-session";
 
 /**
  * 1. CONTEXT
@@ -21,8 +25,9 @@ import { prisma } from "@turbo-web3/db";
  * processing a request
  *
  */
-// type CreateContextOptions = {};
-
+type CreateContextOptions = {
+  session: IronSession;
+};
 /**
  * This helper generates the "internals" for a tRPC context. If you need to use
  * it, you can export it from here
@@ -32,9 +37,9 @@ import { prisma } from "@turbo-web3/db";
  * - trpc's `createSSGHelpers` where we don't have req/res
  * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
-const createInnerTRPCContext = (/*opts: CreateContextOptions*/) => {
+const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
-    // session: opts.session,
+    session: opts.session,
     prisma,
   };
 };
@@ -44,13 +49,13 @@ const createInnerTRPCContext = (/*opts: CreateContextOptions*/) => {
  * process every request that goes through your tRPC endpoint
  * @link https://trpc.io/docs/context
  */
-export const createTRPCContext = (/* opts: CreateNextContextOptions */) => {
-  //const { req, res } = opts;
+export const createTRPCContext = async (opts: CreateNextContextOptions) => {
+  const { req, res } = opts;
 
-  // Get the session from the server using the unstable_getServerSession wrapper function
-  //const session = await getServerSession({ req, res });
+  // Initialize the session data from the request.
+  const session = await getIronSession(req, res, sessionOptions);
 
-  return createInnerTRPCContext();
+  return createInnerTRPCContext({ session }); //const { req, res } = opts;
 };
 
 /**
@@ -100,8 +105,14 @@ export const publicProcedure = t.procedure;
  * procedure
  */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.session.user) {
+    throw new TRPCError({
+      code: "UNAUTHORIZED",
+      message: "You are not logged in",
+    });
+  }
   return next({
-    ctx,
+    ctx: { ...ctx, user: ctx.session.user },
   });
 });
 

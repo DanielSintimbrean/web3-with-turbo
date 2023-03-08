@@ -1,5 +1,6 @@
 import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
 
+import "iron-session";
 import { type AppRouter } from "./src/root";
 
 export { appRouter, type AppRouter } from "./src/root";

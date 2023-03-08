@@ -7,6 +7,7 @@
   "packageManager": "pnpm@7.29.1",
   "scripts": {
     "build": "pnpm with-env turbo build",
+    "build:no-env": "SKIP_ENV_VALIDATION=true pnpm with-env turbo build",
     "clean": "rm -rf node_modules",
     "clean:workspaces": "turbo clean",
     "db:generate": "pnpm with-env turbo db:generate",
