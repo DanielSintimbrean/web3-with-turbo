@@ -1,6 +1,6 @@
 import { U } from "ts-toolbelt";
 
-export const networkMapping = {
+const networkMapping = {
   hardhat: {
     MrCrypto: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
     Lock: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
@@ -11,9 +11,12 @@ export const networkMapping = {
   },
 } as const;
 
-export type Network = keyof typeof networkMapping;
+type Network = keyof typeof networkMapping;
+// const networkList = ["hardhat", "goerli"] as const;
 
 type NetworkList = U.ListOf<Network>;
-export const networkList = Object.keys(
+const networkList = Object.keys(
   networkMapping,
 ) as unknown as Readonly<NetworkList>;
+
+export { networkList, networkMapping, Network };

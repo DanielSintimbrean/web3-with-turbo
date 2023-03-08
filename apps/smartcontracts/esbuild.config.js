@@ -24,7 +24,7 @@ build({
 build({
   ...shared,
 
-  outfile: "dist/index.esm.js",
+  outfile: "dist/index.mjs",
 
   format: "esm",
 });
@@ -56,7 +56,7 @@ build({
 build({
   ...shared2,
 
-  outfile: "dist/network-mapping/index.esm.js",
+  outfile: "dist/network-mapping/index.mjs",
 
   format: "esm",
 });

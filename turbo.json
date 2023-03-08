@@ -15,8 +15,15 @@
       "cache": false
     },
     "build": {
-      "dependsOn": ["^build", "^db:generate"],
+      "dependsOn": ["^build", "^db:generate", "compile", "type:generate"],
       "outputs": [".next/**", ".expo/**"]
+    },
+    "compile": {
+      "inputs": ["contracts/**"],
+      "outputs": ["artifacts/**", "cache/**"]
+    },
+    "type:generate": {
+      "outputs": ["typechain-types/**"]
     },
     "lint": {
       "dependsOn": ["^db:generate"]
