@@ -7,13 +7,13 @@
   "packageManager": "pnpm@7.29.1",
   "scripts": {
     "build": "pnpm with-env turbo build",
-    "build:no-env": "SKIP_ENV_VALIDATION=true pnpm with-env turbo build",
+    "build:no-env": "SKIP_ENV_VALIDATION=true turbo build",
     "clean": "rm -rf node_modules",
     "clean:workspaces": "turbo clean",
     "db:generate": "pnpm with-env turbo db:generate",
     "db:push": "pnpm with-env turbo db:push db:generate",
     "dev": "pnpm with-env turbo dev --parallel",
-    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json,sol}\" --ignore-path .gitignore",
     "lint": "turbo lint && manypkg check",
     "lint:fix": "turbo lint:fix && manypkg fix",
     "type-check": "turbo type-check",
@@ -28,6 +28,7 @@
     "eslint": "^8.34.0",
     "eslint-config-turbo-web3": "0.0.0",
     "prettier": "^2.8.4",
+    "prettier-plugin-solidity": "^1.1.3",
     "prettier-plugin-tailwindcss": "^0.2.4",
     "turbo": "^1.8.3",
     "typescript": "^4.9.5"

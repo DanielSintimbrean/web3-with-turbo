@@ -10,6 +10,7 @@ const config = {
   plugins: [
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
+    "prettier-plugin-solidity",
   ],
   tailwindConfig: "./packages/config/tailwind",
   importOrder: [
@@ -32,6 +33,17 @@ const config = {
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   importOrderMergeDuplicateImports: true,
   importOrderCombineTypeAndValueImports: true,
+  overrides: [
+    {
+      files: "**/*.sol",
+      options: {
+        printWidth: 80,
+        tabWidth: 4,
+        useTabs: false,
+        singleQuote: false,
+      },
+    },
+  ],
 };
 
 module.exports = config;
