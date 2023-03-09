@@ -2,14 +2,24 @@
   "name": "@turbo-web3/smartcontracts",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/typechain-types/index.js",
+  "module": "dist/typechain-types/index.mjs",
   "type": "commonjs",
   "private": true,
   "exports": {
+    ".": {
+      "import": "./dist/typechain-types/index.mjs",
+      "require": "./dist/typechain-types/index.js",
+      "types": "./dist/typechain-types/index.d.ts",
+      "default": "./dist/typechain-types/index.js",
+      "node": "./dist/typechain-types/index.js"
+    },
     "./typechain-types": {
       "import": "./dist/typechain-types/index.mjs",
-      "require": "./dist/typechain-types/index.js"
+      "require": "./dist/typechain-types/index.js",
+      "types": "./dist/typechain-types/index.d.ts",
+      "default": "./dist/typechain-types/index.js",
+      "node": "./dist/typechain-types/index.js"
     },
     "./network-mapping": {
       "import": "./dist/network-mapping/index.mjs",
