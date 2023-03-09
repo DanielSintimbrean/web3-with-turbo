@@ -8,6 +8,12 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts", "**/*.d.ts", ".eslintrc.cjs"],
-  "exclude": ["node_modules", "dist", "build", "coverage", "test", "scripts"]
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    ".eslintrc.cjs",
+    "hardhat.config.ts",
+    "test"
+  ],
+  "exclude": ["node_modules", "dist", "build"]
 }

@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: {
     index: "typechain-types/index.ts",
-    "network-mapping/index": "network-mapping.ts",
+    "network-mapping/index": "network-mapping/index.ts",
   },
   format: ["esm"],
   dts: true,

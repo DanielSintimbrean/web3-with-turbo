@@ -39,7 +39,5 @@ export const networkMapping =`;
   );
   const cmd = "pnpx prettier -w " + filePath;
 
-  console.log({ cmd });
-
   exec(cmd);
 };
