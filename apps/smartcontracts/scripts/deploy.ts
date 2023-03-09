@@ -1,31 +1,9 @@
-import { ethers, network, setNetworkMapping } from "hardhat";
+import { deployLock } from "../deploy/lock";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
-
-  const lockedAmount = ethers.utils.parseEther("0001");
-
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
-
-  await lock.deployed();
-
-  setNetworkMapping({
-    contract: "Lock",
-    address: lock.address as `0x${string}`,
-    network: network.name,
-  });
-
-  console.log(
-    `Lock with ${ethers.utils.formatEther(
-      lockedAmount,
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`,
-  );
+  await deployLock();
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;

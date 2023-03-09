@@ -13,6 +13,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf .next .turbo node_modules && pnpm hardhat clean",
+    "dev": "hardhat run ./scripts/dev-network.ts",
     "lint": "eslint && tsc",
     "build": "tsup",
     "compile": "hardhat compile",
