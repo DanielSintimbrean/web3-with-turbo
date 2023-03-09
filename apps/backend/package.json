@@ -6,7 +6,8 @@
   "type": "module",
   "license": "MIT",
   "exports": {
-    "./env": "./env.mjs"
+    "./env": "./env.mjs",
+    ".": "./index.ts"
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
