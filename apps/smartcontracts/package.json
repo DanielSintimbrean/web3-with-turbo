@@ -33,7 +33,8 @@
     "lint": "eslint && tsc",
     "build": "tsup",
     "compile": "hardhat compile",
-    "type:generate": "hardhat typechain"
+    "type:generate": "hardhat typechain",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
