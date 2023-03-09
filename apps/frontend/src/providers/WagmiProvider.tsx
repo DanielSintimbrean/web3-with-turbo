@@ -1,43 +1,33 @@
-import { WagmiConfig, configureChains, createClient, mainnet } from "wagmi";
-import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
-import { InjectedConnector } from "wagmi/connectors/injected";
+import {
+  WagmiConfig,
+  configureChains,
+  createClient,
+  goerli,
+  mainnet,
+} from "wagmi";
+import { localhost, polygon } from "wagmi/chains";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+
+const chain: "hardhat" | "goerli" | "polygon" = "hardhat";
+const _chains = {
+  hardhat: localhost,
+  goerli: goerli,
+  polygon: polygon,
+  mainnet: mainnet,
+};
 
 // Configure chains & providers with the Alchemy provider.
 // Two popular providers are Alchemy (alchemy.com) and Infura (infura.io)
 const { chains, provider, webSocketProvider } = configureChains(
-  [mainnet],
-  [alchemyProvider({ apiKey: "yourAlchemyApiKey" }), publicProvider()],
+  [_chains[chain]],
+  [publicProvider()],
 );
 
 // Set up client
 const client = createClient({
   autoConnect: true,
-  connectors: [
-    new MetaMaskConnector({ chains }),
-    new CoinbaseWalletConnector({
-      chains,
-      options: {
-        appName: "wagmi",
-      },
-    }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        projectId: "...",
-      },
-    }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: "Injected",
-        shimDisconnect: true,
-      },
-    }),
-  ],
+  connectors: [new MetaMaskConnector({ chains })],
   provider,
   webSocketProvider,
 });
