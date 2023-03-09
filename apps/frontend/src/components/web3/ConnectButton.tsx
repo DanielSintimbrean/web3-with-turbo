@@ -45,9 +45,16 @@ function SignInButton() {
     <button
       className="text-white"
       disabled={authenticated || isLoggingIn}
-      onClick={signIn}
+      onClick={() => {
+        signIn().catch((err) => {
+          console.log(err);
+        });
+      }}
     >
-      Sign-In as {address?.slice(0, 6) + "..." + address?.slice(-5, -1)}
+      Sign-IN as{" "}
+      {(address?.slice(0, 6).toString() ?? "") +
+        "..." +
+        (address?.slice(-5, -1).toString() ?? "")}
     </button>
   );
 }
@@ -78,7 +85,9 @@ export function ConnectButton() {
             </div>
             <button
               onClick={() => {
-                logout();
+                logout().catch((err) => {
+                  console.log(err);
+                });
               }}
             >
               Sign Out
