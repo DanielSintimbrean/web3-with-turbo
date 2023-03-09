@@ -19,4 +19,5 @@ const networkList = Object.keys(
   networkMapping,
 ) as unknown as Readonly<NetworkList>;
 
-export { networkList, networkMapping, Network };
+export { networkList, networkMapping };
+export type { Network };

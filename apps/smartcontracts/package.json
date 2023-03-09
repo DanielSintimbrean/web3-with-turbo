@@ -3,33 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs"
-    },
-    "./network-mapping": {
-      "import": "./dist/network-mapping/index.mjs"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "dist/index.d.ts"
-      ],
-      "./network-mapping": [
-        "dist/network-mapping/index.d.ts"
-      ]
-    }
-  },
   "private": true,
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./network-mapping": "./dist/network-mapping/index.mjs"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf .next .turbo node_modules && pnpm hardhat clean",
     "lint": "eslint && tsc",
-    "build": "node ./esbuild.config.js",
+    "build": "tsup",
     "compile": "hardhat compile",
     "type:generate": "hardhat typechain"
   },
