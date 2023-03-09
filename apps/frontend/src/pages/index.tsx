@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 import { LockAddr } from "@turbo-web3/smartcontracts/network-mapping";
-import { factories } from "@turbo-web3/smartcontracts/typechain-types";
+import { Lock__factory } from "@turbo-web3/smartcontracts/typechain-types";
 
 import { api, type RouterOutputs } from "~/utils/api";
 
-const lockAbi = factories.Lock__factory.abi;
+const lockAbi = Lock__factory.abi;
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
