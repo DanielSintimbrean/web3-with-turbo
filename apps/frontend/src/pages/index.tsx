@@ -2,8 +2,14 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useContractWrite, usePrepareContractWrite } from "wagmi";
+
+import { LockAddr } from "@turbo-web3/smartcontracts/network-mapping";
+import { factories } from "@turbo-web3/smartcontracts/typechain-types";
 
 import { api, type RouterOutputs } from "~/utils/api";
+
+const lockAbi = factories.Lock__factory.abi;
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];
@@ -84,6 +90,14 @@ const CreatePostForm: React.FC = () => {
 const Home: NextPage = () => {
   const postQuery = api.post.all.useQuery();
 
+  const { config } = usePrepareContractWrite({
+    abi: lockAbi,
+    address: LockAddr,
+    functionName: "withdraw",
+  });
+
+  const { write: withdraw } = useContractWrite(config);
+
   const deletePostMutation = api.post.delete.useMutation({
     onSettled: () => postQuery.refetch(),
   });
@@ -103,6 +117,15 @@ const Home: NextPage = () => {
           <AuthShowcase />
 
           <CreatePostForm />
+
+          <button
+            className="rounded bg-pink-400 p-2 font-bold"
+            onClick={() => {
+              withdraw?.();
+            }}
+          >
+            Create
+          </button>
 
           {postQuery.data ? (
             <div className="w-full max-w-2xl">

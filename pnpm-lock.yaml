@@ -36,6 +36,7 @@ importers:
       "@trpc/client": ^10.14.0
       "@trpc/server": ^10.14.0
       "@turbo-web3/db": "*"
+      "@turbo-web3/smartcontracts": "*"
       eslint: ^8.34.0
       eslint-config-turbo-web3: 0.0.0
       iron-session: ^6.3.1
@@ -48,6 +49,7 @@ importers:
       "@trpc/client": 10.14.0_@trpc+server@10.14.0
       "@trpc/server": 10.14.0
       "@turbo-web3/db": link:../../packages/db
+      "@turbo-web3/smartcontracts": link:../smartcontracts
       iron-session: 6.3.1
       siwe: 2.1.3_ethers@5.7.2
       superjson: 1.12.2
@@ -4500,6 +4502,7 @@ packages:
         integrity: sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==,
       }
     engines: { node: ">=12" }
+    dev: false
 
   /ansi-styles/3.2.1:
     resolution:
@@ -4525,6 +4528,7 @@ packages:
         integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==,
       }
     engines: { node: ">=12" }
+    dev: false
 
   /antlr4ts/0.5.0-alpha.4:
     resolution:
@@ -5482,6 +5486,7 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       restore-cursor: 3.1.0
+    dev: false
 
   /cli-table3/0.5.1:
     resolution:
@@ -6301,6 +6306,7 @@ packages:
       {
         integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==,
       }
+    dev: false
 
   /ecc-jsbn/0.1.2:
     resolution:
@@ -8491,6 +8497,7 @@ packages:
         integrity: sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==,
       }
     engines: { node: ">=12.20.0" }
+    dev: false
 
   /humanize-ms/1.2.1:
     resolution:
@@ -8773,6 +8780,7 @@ packages:
         integrity: sha512-O4L094N2/dZ7xqVdrXhh9r1KODPJpFms8B5sGdJLPy664AgvXsreZUyCQQNItZRDlYug4xStLjNp/sz3HvBowQ==,
       }
     engines: { node: ">=12" }
+    dev: false
 
   /is-generator-function/1.0.10:
     resolution:
@@ -8884,6 +8892,7 @@ packages:
         integrity: sha512-LnQR4bZ9IADDRSkvpqMGvt/tEJWclzklNgSw48V5EAaAeDd6qGvN8ei6k5p0tvxSR171VmGyHuTiAOfxAbr8kA==,
       }
     engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    dev: false
 
   /is-string/1.0.7:
     resolution:
@@ -9847,6 +9856,7 @@ packages:
         integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==,
       }
     engines: { node: ">=12" }
+    dev: false
 
   /mimic-response/1.0.1:
     resolution:
@@ -10428,6 +10438,7 @@ packages:
     engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
     dependencies:
       path-key: 4.0.0
+    dev: false
 
   /npm-run/5.0.1:
     resolution:
@@ -10668,6 +10679,7 @@ packages:
     engines: { node: ">=12" }
     dependencies:
       mimic-fn: 4.0.0
+    dev: false
 
   /open/8.4.2:
     resolution:
@@ -10917,6 +10929,7 @@ packages:
         integrity: sha512-haREypq7xkM7ErfgIyA0z+Bj4AGKlMSdlQE2jvJo6huWD1EdkKYV+G/T4nq0YEF2vgTT8kqMFKo1uHn950r4SQ==,
       }
     engines: { node: ">=12" }
+    dev: false
 
   /path-parse/1.0.7:
     resolution:
@@ -11917,6 +11930,7 @@ packages:
     dependencies:
       onetime: 5.1.2
       signal-exit: 3.0.7
+    dev: false
 
   /reusify/1.0.4:
     resolution:
@@ -12363,6 +12377,7 @@ packages:
       ansi-styles: 4.3.0
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
+    dev: false
 
   /slice-ansi/4.0.0:
     resolution:
@@ -12384,6 +12399,7 @@ packages:
     dependencies:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 4.0.0
+    dev: false
 
   /solc/0.7.3_debug@4.3.4:
     resolution:
@@ -12689,6 +12705,7 @@ packages:
       eastasianwidth: 0.2.0
       emoji-regex: 9.2.2
       strip-ansi: 7.0.1
+    dev: false
 
   /string.prototype.matchall/4.0.8:
     resolution:
@@ -12780,6 +12797,7 @@ packages:
     engines: { node: ">=12" }
     dependencies:
       ansi-regex: 6.0.1
+    dev: false
 
   /strip-bom/3.0.0:
     resolution:
@@ -12803,6 +12821,7 @@ packages:
         integrity: sha512-dOESqjYr96iWYylGObzd39EuNTa5VJxyvVAEm5Jnh7KGo75V43Hk1odPQkNDyXNmUR6k+gEiDVXnjB8HJ3crXw==,
       }
     engines: { node: ">=12" }
+    dev: false
 
   /strip-hex-prefix/1.0.0:
     resolution:

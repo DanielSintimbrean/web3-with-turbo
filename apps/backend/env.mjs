@@ -23,6 +23,15 @@ const server = z.object({
   // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  /// Alchemy API keys
+  GOERLI_ALCHEMY_KEY_URL:
+    process.env.NEXT_PUBLIC_BLOCKCHAIN_NAME === "goerli"
+      ? z.string().url()
+      : z.string().url().optional(),
+  POLYGON_ALCHEMY_KEY_URL:
+    process.env.NEXT_PUBLIC_BLOCKCHAIN_NAME === "polygon"
+      ? z.string().url()
+      : z.string().url().optional(),
 });
 
 /**
@@ -49,6 +58,8 @@ const processEnv = {
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   NEXT_PUBLIC_BLOCKCHAIN_NAME: process.env.NEXT_PUBLIC_BLOCKCHAIN_NAME,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  GOERLI_ALCHEMY_KEY_URL: process.env.GOERLI_ALCHEMY_KEY_URL,
+  POLYGON_ALCHEMY_KEY_URL: process.env.POLYGON_ALCHEMY_KEY_URL,
 };
 
 // Don't touch the part below

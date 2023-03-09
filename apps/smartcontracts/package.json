@@ -7,8 +7,24 @@
   "type": "commonjs",
   "private": true,
   "exports": {
-    ".": "./dist/index.mjs",
-    "./network-mapping": "./dist/network-mapping/index.mjs"
+    "./typechain-types": {
+      "import": "./dist/typechain-types/index.mjs",
+      "require": "./dist/typechain-types/index.js"
+    },
+    "./network-mapping": {
+      "import": "./dist/network-mapping/index.mjs",
+      "require": "./dist/network-mapping/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "typechain-types": [
+        "./dist/typechain-types/index.d.ts"
+      ],
+      "network-mapping": [
+        "./dist/network-mapping/index.d.ts"
+      ]
+    }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
