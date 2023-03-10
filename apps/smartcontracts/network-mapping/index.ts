@@ -6,9 +6,8 @@ const blockchain = (process.env.NEXT_PUBLIC_BLOCKCHAIN_NAME ??
   "hardhat") as keyof typeof networkMapping;
 
 const LockAddr = networkMapping[blockchain].Lock;
-const MrCryptoAddr = networkMapping[blockchain].MrCrypto;
 
-export { LockAddr, MrCryptoAddr };
+export { LockAddr };
 
 type Network = keyof typeof networkMapping;
 

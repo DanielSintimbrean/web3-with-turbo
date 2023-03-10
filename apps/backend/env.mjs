@@ -32,6 +32,7 @@ const server = z.object({
     process.env.NEXT_PUBLIC_BLOCKCHAIN_NAME === "polygon"
       ? z.string().url()
       : z.string().url().optional(),
+  SECRET_COOKIE_PASSWORD: z.string().min(32),
 });
 
 /**
@@ -60,6 +61,7 @@ const processEnv = {
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   GOERLI_ALCHEMY_KEY_URL: process.env.GOERLI_ALCHEMY_KEY_URL,
   POLYGON_ALCHEMY_KEY_URL: process.env.POLYGON_ALCHEMY_KEY_URL,
+  SECRET_COOKIE_PASSWORD: process.env.SECRET_COOKIE_PASSWORD,
 };
 
 // Don't touch the part below

@@ -75,6 +75,7 @@ importers:
       "@types/react": ^18.0.27
       "@types/react-dom": ^18.0.10
       autoprefixer: ^10.4.13
+      clsx: ^1.2.1
       eslint: ^8.34.0
       eslint-config-turbo-web3: 0.0.0
       ethers: "5"
@@ -99,6 +100,7 @@ importers:
       "@turbo-web3/db": link:../../packages/db
       "@turbo-web3/smartcontracts": link:../smartcontracts
       "@turbo-web3/tailwind-config": link:../../packages/config/tailwind
+      clsx: 1.2.1
       ethers: 5.7.2
       next: 13.2.3_6m24vuloj5ihw4zc5lbsktc4fu
       next-auth: 4.20.1_nvzgbose6yf6w7ijjprgspqefi

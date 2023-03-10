@@ -1,7 +1,12 @@
 import { useState } from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useContractWrite, usePrepareContractWrite } from "wagmi";
+import clsx from "clsx";
+import {
+  useBlockNumber,
+  useContractWrite,
+  usePrepareContractWrite,
+} from "wagmi";
 
 import { LockAddr } from "@turbo-web3/smartcontracts/network-mapping";
 import { Lock__factory } from "@turbo-web3/smartcontracts/typechain-types";
@@ -95,7 +100,12 @@ const Home: NextPage = () => {
     address: LockAddr,
     functionName: "withdraw",
   });
-
+  const { data: blocknumber } = useBlockNumber({
+    staleTime: 1000,
+    enabled: true,
+    cacheTime: 1000,
+    watch: true,
+  });
   const { write: withdraw } = useContractWrite(config);
 
   const deletePostMutation = api.post.delete.useMutation({
@@ -114,12 +124,15 @@ const Home: NextPage = () => {
           <CreatePostForm />
 
           <button
-            className="rounded bg-pink-400 p-2 font-bold"
+            className={clsx(
+              "rounded  p-2 font-bold",
+              withdraw != undefined ? "bg-pink-400" : "bg-slate-400",
+            )}
             onClick={() => {
               withdraw?.();
             }}
           >
-            Create
+            Withdraw {blocknumber}
           </button>
 
           {postQuery.data ? (

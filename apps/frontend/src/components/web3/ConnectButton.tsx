@@ -59,9 +59,13 @@ function SignInButton() {
   );
 }
 
-export function ConnectButton() {
+export function ConnectButton({
+  type,
+}: {
+  type: "onlyConnect" | "connectAndSingIn";
+}) {
   const { logout } = useAuth();
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
   const isMounted = useIsMounted();
   const session = useSession();
 
@@ -71,7 +75,7 @@ export function ConnectButton() {
   // Need to use isMounted because of Hydration Errors
   if (!isMounted) return <div></div>;
 
-  if (isConnected) {
+  if (isConnected && type === "connectAndSingIn") {
     return (
       <div>
         {/* Account content goes here */}
@@ -101,6 +105,17 @@ export function ConnectButton() {
       </div>
     );
   }
+
+  if (isConnected && type === "onlyConnect")
+    return (
+      <div>
+        {address && (
+          <div className="font-bold">
+            {address.slice(0, 6) + "..." + address.slice(-5, -1)}
+          </div>
+        )}
+      </div>
+    );
 
   return (
     <div>
