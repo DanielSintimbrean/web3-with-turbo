@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
 import clsx from "clsx";
+import { toast } from "react-toastify";
 import {
   useBlockNumber,
   useContractWrite,
   usePrepareContractWrite,
+  useWaitForTransaction,
 } from "wagmi";
 
 import { LockAddr } from "@turbo-web3/smartcontracts/network-mapping";
@@ -29,7 +31,21 @@ const Home: NextPage = () => {
     cacheTime: 1000,
     watch: true,
   });
-  const { write: withdraw } = useContractWrite(config);
+
+  const { write: withdraw, data: tx } = useContractWrite(config);
+
+  useWaitForTransaction({
+    hash: tx?.hash,
+    onSuccess: () => {
+      toast.success("Withdraw transaction confirmed");
+    },
+    onError: (err) => {
+      toast.error(
+        "Error confirming withdraw transaction\n" + err.message + err.name,
+      );
+      console.log(err);
+    },
+  });
 
   const isMounted = useIsMounted();
 

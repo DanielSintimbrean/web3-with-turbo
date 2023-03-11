@@ -4,6 +4,7 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 
 import { api } from "~/utils/api";
+import { ToastifyProvider } from "~/providers/ToastifyProvider";
 import { WagmiProvider } from "~/providers/WagmiProvider";
 
 const MyApp: AppType<{ session: Session | null }> = ({
@@ -14,6 +15,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     <SessionProvider session={session}>
       <WagmiProvider>
         <Component {...pageProps} />
+        <ToastifyProvider />
       </WagmiProvider>
     </SessionProvider>
   );

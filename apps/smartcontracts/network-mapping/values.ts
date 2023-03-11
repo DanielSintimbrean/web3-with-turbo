@@ -6,4 +6,12 @@ export const networkMapping = {
     Lock: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
     MrCrypto: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
   },
+  polygon: {
+    Lock: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    MrCrypto: "0xeF453154766505FEB9dBF0a58E6990fd6eB66969",
+  },
+  goerli: {
+    Lock: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    MrCrypto: "0x6F814280E4EdbAEF59b22aFc2A4CC9a6E1711731",
+  },
 } as const;
