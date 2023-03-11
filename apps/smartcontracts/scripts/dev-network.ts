@@ -1,5 +1,8 @@
 import { hardhatArguments, run } from "hardhat";
 
+import { deployLock } from "../deploy/lock";
+import { deployMrCrypto } from "../deploy/mr-crypto";
+
 /**
  * This script starts a Hardhat node and deploys the contracts to it.
  * Used to test the contracts locally.
@@ -14,10 +17,8 @@ async function main() {
 
   hardhatArguments.network = "localhost";
 
-  // deploy contracts on hardhat node
-  await run("run", {
-    script: "./scripts/deploy.ts",
-  });
+  await deployLock();
+  await deployMrCrypto();
 
   console.log("\n===================================");
   console.log("== Hardhat 👷 node started ✅ 🎉 ==");
