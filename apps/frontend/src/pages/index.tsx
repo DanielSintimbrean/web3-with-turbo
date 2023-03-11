@@ -39,9 +39,9 @@ const Home: NextPage = () => {
         {isMounted && (
           <button
             className={clsx(
-              "rounded  p-2 font-bold",
-              withdraw != undefined ? "bg-pink-400" : "bg-slate-400",
+              "font-lg btn-secondary btn rounded border-2 border-secondary p-2 font-bold ",
             )}
+            disabled={withdraw == undefined}
             onClick={() => {
               withdraw?.();
             }}
@@ -49,7 +49,9 @@ const Home: NextPage = () => {
             Withdraw {blocknumber}
           </button>
         )}
-        <span>{helloQuery.data}</span>
+        <div className="max-w-md">
+          <h1 className="text-5xl font-bold">{helloQuery.data}</h1>
+        </div>
       </div>
     </AppLayout>
   );

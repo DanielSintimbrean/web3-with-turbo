@@ -88,6 +88,7 @@ export function ConnectButton({
                 session.user.address.slice(-5, -1)}
             </div>
             <button
+              className="btn"
               onClick={() => {
                 logout().catch((err) => {
                   console.log(err);
@@ -110,7 +111,7 @@ export function ConnectButton({
     return (
       <div>
         {address && (
-          <div className="font-bold">
+          <div className=" text-xl font-bold">
             {address.slice(0, 6) + "..." + address.slice(-5, -1)}
           </div>
         )}
@@ -121,11 +122,12 @@ export function ConnectButton({
     <div>
       {connectors.map((connector) => (
         <button
+          className="btn-primary btn-sm btn text-lg"
           disabled={!connector.ready}
           key={connector.id}
           onClick={() => connect({ connector })}
         >
-          {connector.name}
+          Connect with {connector.name}
           {!connector.ready && " (unsupported)"}
           {isLoading &&
             connector.id === pendingConnector?.id &&
