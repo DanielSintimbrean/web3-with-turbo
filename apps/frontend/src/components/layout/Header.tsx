@@ -21,7 +21,7 @@ export default function Header() {
   }
 
   return (
-    <header className="mx-5  flex flex-row items-center justify-between rounded-b-xl bg-gradient-to-br from-purple-600 to-purple-700 text-red-50">
+    <header className="mx-5 flex h-14 w-full max-w-7xl flex-row items-center justify-between rounded-b-xl bg-gradient-to-br from-purple-600 to-purple-700 text-red-50">
       <div className="m-5">
         <ConnectButton type="onlyConnect" />
       </div>
