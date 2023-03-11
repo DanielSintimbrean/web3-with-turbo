@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Head from "next/head";
 
+import Footer from "./Footer";
 import Header from "./Header";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -12,7 +13,11 @@ export default function Layout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="h-full w-full">{children}</main>
+      <main className="relative min-h-[calc(100vh_-_3.5rem)] w-full overflow-hidden [&>*]:absolute [&>*]:h-full [&>*]:w-full">
+        {children}
+      </main>
+      <hr className="mx-auto my-4 h-1 w-5/6 rounded border-0 bg-gray-100 md:my-10" />
+      <Footer />
     </div>
   );
 }

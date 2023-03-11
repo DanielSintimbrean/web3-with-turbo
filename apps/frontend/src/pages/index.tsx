@@ -35,7 +35,7 @@ const Home: NextPage = () => {
 
   return (
     <AppLayout>
-      <div className="container mt-12 flex min-h-full min-w-full flex-col items-center justify-center gap-4 px-4 py-8 text-white">
+      <div className="flex  flex-col items-center justify-center gap-4 text-white">
         {isMounted && (
           <button
             className={clsx(
