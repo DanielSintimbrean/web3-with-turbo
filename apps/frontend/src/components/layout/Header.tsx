@@ -3,6 +3,7 @@ import { useAccount } from "wagmi";
 
 import { useAuth } from "~/hooks/useAuth";
 import { useSession } from "~/hooks/useSession";
+import NavDropdown from "../NavDropdown";
 import { ConnectButton } from "../web3/ConnectButton";
 
 export default function Header() {
@@ -26,9 +27,12 @@ export default function Header() {
         <ConnectButton type="onlyConnect" />
       </div>
       <nav className="">
-        <ul className="m-5 flex flex-row gap-5">
-          <li className="">
+        <ul className="m-5 flex flex-row gap-2">
+          <li className="flex items-center justify-center">
             <Link href="/">Home</Link>
+          </li>
+          <li>
+            <NavDropdown></NavDropdown>
           </li>
         </ul>
       </nav>
