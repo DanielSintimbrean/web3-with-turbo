@@ -25,6 +25,7 @@ const Home: NextPage = () => {
     address: LockAddr,
     functionName: "withdraw",
   });
+
   const { data: blocknumber } = useBlockNumber({
     staleTime: 1000,
     enabled: true,
@@ -32,18 +33,22 @@ const Home: NextPage = () => {
     watch: true,
   });
 
-  const { write: withdraw, data: tx } = useContractWrite(config);
+  const { write: withdraw, data: tx } = useContractWrite({
+    ...config,
+    onSuccess: () => {
+      toast.info("Withdraw transaction sent");
+    },
+  });
 
-  useWaitForTransaction({
+  const { status } = useWaitForTransaction({
     hash: tx?.hash,
+    confirmations: 3,
     onSuccess: () => {
       toast.success("Withdraw transaction confirmed");
     },
     onError: (err) => {
-      toast.error(
-        "Error confirming withdraw transaction\n" + err.message + err.name,
-      );
-      console.log(err);
+      toast.error("Error confirming withdraw transaction");
+      console.log({ err });
     },
   });
 
@@ -51,13 +56,14 @@ const Home: NextPage = () => {
 
   return (
     <AppLayout>
-      <div className="flex  flex-col items-center justify-center gap-4 text-white">
+      <div className="flex flex-col items-center justify-center gap-4 text-white">
         {isMounted && (
           <button
             className={clsx(
-              "font-lg btn-secondary btn rounded border-2 border-secondary p-2 font-bold ",
+              "font-xl btn-secondary btn rounded p-2 font-bold capitalize ring ring-secondary ring-offset-base-100",
+              status === "loading" && "loading",
             )}
-            disabled={withdraw == undefined}
+            disabled={withdraw == undefined || status === "loading"}
             onClick={() => {
               withdraw?.();
             }}
