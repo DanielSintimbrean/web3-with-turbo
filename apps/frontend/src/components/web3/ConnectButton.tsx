@@ -88,7 +88,7 @@ export function ConnectButton({
                 session.user.address.slice(-5, -1)}
             </div>
             <button
-              className="btn"
+              className="btn-sm btn"
               onClick={() => {
                 logout().catch((err) => {
                   console.log(err);

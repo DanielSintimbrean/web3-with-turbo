@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header className="flex h-20 w-full max-w-5xl flex-row items-center justify-between rounded-b-xl border-2 border-t-0 border-base-content bg-gradient-to-br from-base-100 to-neutral text-red-50">
       <div className="mx-8">
-        <ConnectButton type="onlyConnect" />
+        <ConnectButton type="connectAndSingIn" />
       </div>
       <nav className="">
         <ul className="m-5 flex flex-row gap-2">
@@ -32,7 +32,7 @@ export default function Header() {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <NavDropdown></NavDropdown>
+            <NavDropdown />
           </li>
         </ul>
       </nav>

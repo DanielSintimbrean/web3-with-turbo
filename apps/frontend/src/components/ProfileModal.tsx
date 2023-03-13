@@ -1,8 +1,9 @@
 import { Dialog } from "@headlessui/react";
 
+import { useSession } from "~/hooks/useSession";
 import Modal from "./Modal";
 
-export default function TechnologiesModal({
+export default function ProfileModal({
   isOpen,
   setIsOpen,
 }: {
@@ -13,25 +14,22 @@ export default function TechnologiesModal({
     setIsOpen(false);
   }
 
+  const session = useSession();
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Dialog.Title
         as="h3"
         className="text-lg font-medium leading-6 text-base-content"
       >
-        Libraries y Technologies ⚛️
+        Your Profile
       </Dialog.Title>
-      <div className="my-8">
-        <p className="text-md mb-2 font-black text-gray-300">
-          Libraries and technologies used in this project:
-        </p>
-        <p className="text-md text-gray-300">
-          Turborepo, Next.js, TailwindCSS, React, TypeScript, tRPC, Hardhat,
-          Wagmi, Siwe, Zod, React Icons, TsUp, Prisma, Ethers.js, HeadlessUI,
-          IronSession, DaisyUI... and more!
-        </p>
-      </div>
-
+      {session.authenticated && (
+        <div>
+          <p className="text-base-content">Name: {session.user.name}</p>
+          <p className="text-base-content">Address: {session.user.address}</p>
+        </div>
+      )}
       <div className="mt-4">
         <button
           type="button"

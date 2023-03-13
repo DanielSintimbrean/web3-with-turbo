@@ -3,10 +3,15 @@ import { Menu, Transition } from "@headlessui/react";
 import { BiLibrary } from "react-icons/bi";
 import { BsChevronDown } from "react-icons/bs";
 
+import { useSession } from "~/hooks/useSession";
+import ProfileModal from "./ProfileModal";
 import TechnologiesModal from "./TechnologiesModal";
 
 export default function NavDropdown() {
   const [isTechnologiesModalOpen, setIsTechnologiesModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
+  const session = useSession();
 
   return (
     <div className="top-16  text-right">
@@ -43,11 +48,13 @@ export default function NavDropdown() {
               <Menu.Item>
                 {({ active }) => (
                   <button
+                    onClick={() => setIsProfileModalOpen(true)}
+                    disabled={!session.authenticated || session.loading}
                     className={`${
                       active ? "bg-primary text-white" : "text-base-content"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
-                    Duplicate
+                    Profile
                   </button>
                 )}
               </Menu.Item>
@@ -95,6 +102,10 @@ export default function NavDropdown() {
       <TechnologiesModal
         isOpen={isTechnologiesModalOpen}
         setIsOpen={setIsTechnologiesModalOpen}
+      />
+      <ProfileModal
+        isOpen={isProfileModalOpen}
+        setIsOpen={setIsProfileModalOpen}
       />
     </div>
   );
