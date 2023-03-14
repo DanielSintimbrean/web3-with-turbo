@@ -6,7 +6,18 @@ import { siweMessageSchema } from "../../validators";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
-  getSession: publicProcedure.query(({ ctx }) => {
+  getSession: publicProcedure.query(async ({ ctx }) => {
+    if (ctx.session.user?.address) {
+      const user = await ctx.prisma.user.findFirst({
+        where: { address: ctx.session.user.address },
+      });
+
+      if (user) {
+        ctx.session.user.name = user?.name;
+        await ctx.session.save();
+      }
+    }
+
     return ctx.session;
   }),
   getSecretMessage: protectedProcedure.query(() => {
